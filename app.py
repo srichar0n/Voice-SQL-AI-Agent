@@ -24,7 +24,7 @@ database_file_path = "./db/salary.db"
 
 # Create an engine to connect to the SQLite database
 engine = create_engine(f"sqlite:///{database_file_path}")
-file_url = "./data/salaries_2023.csv"
+file_url = "./salaries_2023.csv"
 os.makedirs(os.path.dirname(database_file_path), exist_ok=True)
 df = pd.read_csv(file_url).fillna(value=0)
 df.to_sql("salaries_2023", con=engine, if_exists="replace", index=False)
